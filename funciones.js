@@ -37,12 +37,19 @@ contenedorBotones.addEventListener("click", (e) =>{
 
     switch(accion) {
         case "numero":
-            if(calculoTerminado){
+            if(calculoTerminado && operadorPendiente == null){
                 numeroActual = "";
+                resultadoAcumulado = null;
+                pantalla.value = numeroActual;
                 calculoTerminado = false;
             }
             numeroActual += valor;
-            pantalla.value = numeroActual;
+            if(resultadoAcumulado == null && operadorPendiente == null) {
+                pantalla.value = numeroActual;
+            }
+            else if(resultadoAcumulado !== null && operadorPendiente !== null) {
+                pantalla.value = resultadoAcumulado + operadorPendiente + numeroActual;
+            }
             break;
         
         case "operador":
@@ -54,7 +61,7 @@ contenedorBotones.addEventListener("click", (e) =>{
             }
             operadorPendiente = valor;
             numeroActual = "";
-            pantalla.value = resultadoAcumulado;
+            pantalla.value = resultadoAcumulado + operadorPendiente + numeroActual;
             break;
 
         case "igual":
