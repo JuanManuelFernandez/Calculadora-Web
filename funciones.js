@@ -74,5 +74,41 @@ contenedorBotones.addEventListener("click", (e) =>{
             numeroActual = "";
             calculoTerminado = true;
             break;
+        
+        case "limpiarActual":
+            if(resultadoAcumulado !== null && operadorPendiente !== null && numeroActual !== ""){
+                numeroActual = "";
+                pantalla.value = resultadoAcumulado + operadorPendiente + numeroActual;
+            }
+            else if(numeroActual !== ""){
+                numeroActual = "";
+                pantalla.value = numeroActual;
+            }
+            else if(calculoTerminado) {
+                resultadoAcumulado = null
+                pantalla.value = resultadoAcumulado;
+            }
+            break;
+
+        case "limpiarTodo":
+            numeroActual = "";
+            resultadoAcumulado = null;
+            operadorPendiente = null;
+            calculoTerminado = false;
+
+            pantalla.value = "";
+            break;
+        
+        case "borrar":
+            if(numeroActual.length > 0){
+                numeroActual = numeroActual.slice(0, -1);
+            }
+            if(resultadoAcumulado !== null && operadorPendiente !== null) {
+                pantalla.value = resultadoAcumulado + operadorPendiente + numeroActual;
+            }
+            else {
+                pantalla.value = numeroActual;
+            }
+            break
     }
 });
