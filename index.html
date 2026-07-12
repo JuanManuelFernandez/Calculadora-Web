@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="ContenedorMain">
+        <div class="ContenedorCalculadora">
+            <div class="ContenedorPantalla">
+                <input class="InputPantalla" id="inputPantalla">
+            </div>
+            
+            <div class="ContenedorBotones" id="contenedorBtns">
+                <div class="FilaBtns">
+                    <button class="Btn" data-accion="limpiarActual">CE</button>
+                    <button class="Btn" data-accion="limpiarTodo">C</button>
+                    <button class="Btn" data-accion="borrar">DEL</button>
+                    <button class="Btn" data-accion="operador">/</button>
+                </div>
+
+                <div class="FilaBtns">
+                    <button class="Btn" data-accion="numero">7</button>
+                    <button class="Btn" data-accion="numero">8</button>
+                    <button class="Btn" data-accion="numero">9</button>
+                    <button class="Btn" data-accion="operador">X</button>
+                </div>
+
+                <div class="FilaBtns">
+                    <button class="Btn" data-accion="numero">4</button>
+                    <button class="Btn" data-accion="numero">5</button>
+                    <button class="Btn" data-accion="numero">6</button>
+                    <button class="Btn" data-accion="operador">-</button>
+                </div>
+
+                <div class="FilaBtns">
+                    <button class="Btn" data-accion="numero">1</button>
+                    <button class="Btn" data-accion="numero">2</button>
+                    <button class="Btn" data-accion="numero">3</button>
+                    <button class="Btn" data-accion="operador">+</button>
+                </div>
+
+                <div class="FilaBtns">
+                    <button class="Btn" data-accion="operador">+/-</button>
+                    <button class="Btn" data-accion="numero">0</button>
+                    <button class="Btn" data-accion="decimal">,</button>
+                    <button class="Btn" data-accion="igual">=</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="funciones.js"></script>
+</body>
+</html>

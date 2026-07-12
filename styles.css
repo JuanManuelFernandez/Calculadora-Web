@@ -1,0 +1,64 @@
+body {
+    margin: 0;
+    background-color: #2c2c2c;
+}
+
+.ContenedorMain {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/*DISEÑO CALCULADORA*/
+
+.ContenedorCalculadora {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px;
+    height: 650px;
+    background-color: #2c2c2c;
+    border: 1px solid #ffff;
+    border-radius: 10px;
+}
+
+.ContenedorPantalla {
+    margin-top: 30px;
+}
+
+.InputPantalla {
+    width: 350px;
+    height: 120px;
+    font-size: 50px;
+    color: #ffff;
+    background-color: #000;
+    border: 2px solid #ffff;
+}
+
+.ContenedorBotones { 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    gap: 5px;
+}
+
+.FilaBtns {
+    display: flex;
+    flex-direction: row;     
+    gap: 10px;
+}
+
+.Btn {
+    width: 80px;
+    height: 80px;
+    border: 0.5px solid #ffff;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.Btn:hover {
+    background-color: #b8b6b6;
+}
