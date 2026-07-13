@@ -1,6 +1,7 @@
 const pantalla = document.getElementById("inputPantalla");
 const contenedorBotones = document.querySelector("#contenedorBtns");
 
+
 let resultadoAcumulado = null;
 let operadorPendiente = null;
 let calculoTerminado = false;
@@ -20,14 +21,15 @@ function calcular (a, b, operador) {
             return num1 * num2;
         case "/":
             if(num2 == 0) {
-                pantalla.value = "No se puede dividir entre cero";
-                return;
+                pantalla.style.fontSize = "20px";
+                return pantalla.value = "No se puede dividir entre cero";
             }
             return num1 / num2;
     }
 }
 
 contenedorBotones.addEventListener("click", (e) =>{
+    pantalla.style.fontSize = "50px";
     if(!e.target.classList.contains("Btn")){
         return;
     }
@@ -53,10 +55,14 @@ contenedorBotones.addEventListener("click", (e) =>{
             break;
         
         case "operador":
-            if(operadorPendiente !== null && numeroActual !== "") {
+            if(numeroActual == "" && resultadoAcumulado == null){
+                numeroActual = "0";
+                resultadoAcumulado = parseFloat(numeroActual);
+            }
+            else if(operadorPendiente !== null && numeroActual !== "") {
                 resultadoAcumulado = calcular(resultadoAcumulado, numeroActual, operadorPendiente);
             }
-            else if(numeroActual !== ""){
+            else if(operadorPendiente == null && numeroActual !== "") {
                 resultadoAcumulado = parseFloat(numeroActual);
             }
             operadorPendiente = valor;
@@ -85,7 +91,7 @@ contenedorBotones.addEventListener("click", (e) =>{
                 pantalla.value = numeroActual;
             }
             else if(calculoTerminado) {
-                resultadoAcumulado = null
+                resultadoAcumulado = 0;
                 pantalla.value = resultadoAcumulado;
             }
             break;
@@ -110,5 +116,28 @@ contenedorBotones.addEventListener("click", (e) =>{
                 pantalla.value = numeroActual;
             }
             break
-    }
+            
+        case "signo":
+            if(numeroActual !== "") {
+                if(numeroActual.startsWith("-")) {
+                    numeroActual = numeroActual.slice(1);
+                } else {
+                    numeroActual = "-" + numeroActual;
+                }
+            }
+            else if(resultadoAcumulado !== null && operadorPendiente == null) {
+                resultadoAcumulado = -resultadoAcumulado;
+            }
+
+            if(resultadoAcumulado == null && operadorPendiente == null) {
+                pantalla.value = numeroActual;
+            }
+            else if(resultadoAcumulado !== null && operadorPendiente !== null) {
+                pantalla.value = resultadoAcumulado + operadorPendiente + numeroActual;
+            }
+            else {
+                pantalla.value = numeroActual !== "" ? numeroActual : resultadoAcumulado;
+            }
+            break;
+            }
 });
