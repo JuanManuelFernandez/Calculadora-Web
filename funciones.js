@@ -139,5 +139,30 @@ contenedorBotones.addEventListener("click", (e) =>{
                 pantalla.value = numeroActual !== "" ? numeroActual : resultadoAcumulado;
             }
             break;
+        
+        case "decimal":
+            if(calculoTerminado) {
+                if(operadorPendiente !== null){
+                    calculoTerminado = false;
+                }
+                else {
+                    numeroActual = "";
+                    resultadoAcumulado = null;
+                    calculoTerminado = false;
+                }
             }
+            if(numeroActual == "") {
+                numeroActual = "0.";
+            }
+            else if(!numeroActual.includes(".")) {
+                numeroActual += "."
+            }
+            if(resultadoAcumulado == null && operadorPendiente == null) {
+                pantalla.value = numeroActual;
+            }
+            else if(resultadoAcumulado !== null && operadorPendiente !== null) {
+                pantalla.value = resultadoAcumulado + operadorPendiente + numeroActual;
+            }
+            break;
+        }   
 });
